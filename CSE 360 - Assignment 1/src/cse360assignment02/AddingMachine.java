@@ -4,13 +4,14 @@
  * a history of changes as a string.
  * 
  * @author Hayden Hannappel
- * @version 1.0
+ * @version 2.0
  * 
  */
 package cse360assignment02;
 
 public class AddingMachine {
   private int total;
+  private String history = "0";
   
   public AddingMachine () {
     total = 0;  // not needed - included for clarity
@@ -21,21 +22,25 @@ public class AddingMachine {
    * @return total
    */
   public int getTotal () {
-    return 0;
+    return total;
   }
   
   /**
-   * adds to total
+   * adds to total and updates history
    * @param value - integer to be added to total
    */
   public void add (int value) {
+	  total = total + value;
+	  history = history + " + " + value;
   }
 
   /**
-   * subtracts from total
+   * subtracts from total and updates history
    * @param value - integer to be subtracted from total
    */
   public void subtract (int value) {
+	  total = total - value;
+	  history = history + " - " + value;
   }
 
   /**
@@ -43,12 +48,14 @@ public class AddingMachine {
    * @return string representation of history
    */
   public String toString () {
-    return "";
+    return history;
   }
 
   /**
    * clears total and history
    */
   public void clear() {
+	  total = 0;
+	  history = "0";
   }
 }
